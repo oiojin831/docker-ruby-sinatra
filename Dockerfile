@@ -1,6 +1,6 @@
 FROM ruby:2.3
 
-MAINTAINER Erika Pauwels <erika.pauwels@gmail.com>
+MAINTAINER EungJin <oiojin831@gmail.com>
 
 ENV MAIN_APP_FILE web.rb
 
@@ -10,6 +10,7 @@ ADD startup.sh /
 
 WORKDIR /usr/src/app
 
-EXPOSE 80
+COPY Gemfile Gemfile
+RUN bundle install
 
 CMD ["/bin/bash", "/startup.sh"]
